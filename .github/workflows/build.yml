@@ -1,0 +1,29 @@
+name: build-apk
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - name: Install build tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq android-sdk-build-tools android-sdk-platform-tools zipalign apksigner || true
+      - name: Fetch SDK platform + R8
+        run: |
+          mkdir -p $RUNNER_TEMP/amm
+          curl -sL https://dl.google.com/android/repository/platform-33-ext3_r03.zip -o $RUNNER_TEMP/amm/p.zip
+          unzip -q $RUNNER_TEMP/amm/p.zip -d $RUNNER_TEMP/amm
+          curl -sL https://dl.google.com/dl/android/maven2/com/android/tools/r8/8.6.27/r8-8.6.27.jar -o $RUNNER_TEMP/amm/r8.jar
+      - name: Build
+        env:
+          ANDROID_JAR: ${{ runner.temp }}/amm/android-13/android.jar
+          R8_JAR: ${{ runner.temp }}/amm/r8.jar
+          BUILD_TOOLS: /usr/lib/android-sdk/build-tools/29.0.3
+        run: bash android/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-mobile-motions-apk
+          path: android/ai-mobile-motions.apk

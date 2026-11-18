@@ -1,0 +1,56 @@
+{
+  "name": "demo",
+  "width": 540,
+  "height": 960,
+  "fps": 30.0,
+  "audio": null,
+  "effects": [
+    "deepglow"
+  ],
+  "clips": [
+    {
+      "source": "assets/shot_0.jpg",
+      "start": 0,
+      "end": 15,
+      "zoom": [
+        1.0,
+        1.06
+      ],
+      "beat": true,
+      "pop": true,
+      "bubbles": false,
+      "caption": [
+        "Hello",
+        "World"
+      ],
+      "zoom_keys": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.2,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "easing": "ease_in_out"
+    },
+    {
+      "source": "assets/shot_1.jpg",
+      "start": 15,
+      "end": 30,
+      "zoom": [
+        1.0,
+        1.06
+      ],
+      "beat": true,
+      "pop": false,
+      "bubbles": false,
+      "caption": null
+    }
+  ]
+}

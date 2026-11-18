@@ -1,0 +1,6 @@
+android/build/
+android/debug.jks
+android/ai-mobile-motions.apk
+__pycache__/
+*.pyc
+out/
