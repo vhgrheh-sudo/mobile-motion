@@ -1,4 +1,4 @@
-# AI Mobile Motions
+# Mobile Motion
 
 Agent-first video editor with TWO front ends:
 - `amm.py` — headless Python editor (VM).
@@ -6,14 +6,14 @@ Agent-first video editor with TWO front ends:
   reachable over USB (`adb forward`) or Tailscale. Self-preview and self-test are
   built in; any model/agent can send commands with `agent_client.py`.
 
-This is NOT the Gold Motion engine. It is our own renderer built from the 739
+This is NOT the Mobile Motion engine. It is our own renderer built from the 739
 verbatim effect XMLs plus original code; `GMExportCodec.java` is decompiled from
-the Gold Motion APK and reused. See `FACT_CHECK.md`.
+the Mobile Motion APK and reused. See `FACT_CHECK.md`.
 
 ## Android app (verified on Redmi Note 4)
 ```bash
-cd android && ./build.sh          # produces ai-mobile-motions.apk
-adb install -r ai-mobile-motions.apk
+cd android && ./build.sh          # produces mobile-motion.apk
+adb install -r mobile-motion.apk
 adb shell am start -n com.sarvesh173.aimobilemotions/.MainActivity
 adb forward tcp:4091 tcp:4091
 python3 ../agent_client.py ping
@@ -31,7 +31,7 @@ Verified selftest output: H.264 256x256, 3 frames, 7188 bytes + PNG preview.
 ```
 amm.py                 CLI (init/import/info/add-clip/keyframe/effect/export/preview)
 engine/                renderer, effects, keyframes, typography
-effects/               739 Gold Motion V7.0.4 XML effects (verbatim)
+effects/               739 Mobile Motion V7.0.4 XML effects (verbatim)
 effects_catalog.md     index
 projects/              *.motion.json project files + assets
 out/                   exports
@@ -56,7 +56,7 @@ python3 amm.py import projects/my.motion.json projects/copy.motion.json
 ## On the phone
 Termux has Python 3.14.10 + numpy 2.5.5 + Pillow 13.0.0 installed (sideloaded .deb).
 OpenCV is not installed, so this Python engine still needs an OpenCV wheel/build
-before `amm.py` can run on the phone. The real Gold Motion APK is the phone-native
+before `amm.py` can run on the phone. The real Mobile Motion APK is the phone-native
 renderer; driving that app is a separate path.
 
 ## Reverse engineering status
@@ -70,4 +70,4 @@ renderer; driving that app is a separate path.
 ## Honest limits
 - 9 effects ported, not 739.
 - ~1.2 fps on the VM at 1088x1344; no realtime 4K.
-- Project format is ours, not Gold Motion's.
+- Project format is ours, not Mobile Motion's.

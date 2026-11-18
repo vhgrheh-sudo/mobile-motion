@@ -1,6 +1,6 @@
-# Gold Motion Effects Catalog
+# Mobile Motion Effects Catalog
 
-726 XML effects copied verbatim from Gold Motion V7.0.4 (assets/effects/, plus presets/).
+726 XML effects copied verbatim from Mobile Motion V7.0.4 (assets/effects/, plus presets/).
 
 ## Categories
 

@@ -25,5 +25,5 @@ jobs:
         run: bash android/build.sh
       - uses: actions/upload-artifact@v4
         with:
-          name: ai-mobile-motions-apk
-          path: android/ai-mobile-motions.apk
+          name: mobile-motion-apk
+          path: android/mobile-motion.apk

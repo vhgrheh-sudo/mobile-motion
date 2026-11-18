@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agent client for AI Mobile Motions. Talks to the app over TCP 4091.
+"""Agent client for Mobile Motion. Talks to the app over TCP 4091.
 Wire via USB: adb forward tcp:4091 tcp:4091
 Wireless: Tailscale IP of the phone, port 4091.
 """

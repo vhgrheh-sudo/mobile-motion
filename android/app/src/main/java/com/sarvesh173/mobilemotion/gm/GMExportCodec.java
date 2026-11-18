@@ -1,4 +1,4 @@
-package com.sarvesh173.aimobilemotions.gm;
+package com.sarvesh173.mobilemotion.gm;
 
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;

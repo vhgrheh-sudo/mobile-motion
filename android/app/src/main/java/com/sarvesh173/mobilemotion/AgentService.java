@@ -1,4 +1,4 @@
-package com.sarvesh173.aimobilemotions;
+package com.sarvesh173.mobilemotion;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -28,11 +28,11 @@ public class AgentService extends Service {
     @Override public void onCreate() {
         super.onCreate();
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        NotificationChannel ch = new NotificationChannel("amm", "AI Mobile Motions",
+        NotificationChannel ch = new NotificationChannel("amm", "Mobile Motion",
                                                           NotificationManager.IMPORTANCE_LOW);
         nm.createNotificationChannel(ch);
         Notification n = new Notification.Builder(this, "amm")
-                .setContentTitle("AI Mobile Motions")
+                .setContentTitle("Mobile Motion")
                 .setContentText("Agent control listening on TCP 4091")
                 .setSmallIcon(android.R.drawable.ic_media_play)
                 .build();

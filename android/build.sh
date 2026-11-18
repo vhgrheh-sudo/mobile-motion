@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build AI Mobile Motions APK without Gradle. CI runs this too.
+# Build Mobile Motion APK without Gradle. CI runs this too.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 APP="$ROOT/app"
@@ -25,8 +25,8 @@ java -cp "$R8_JAR" com.android.tools.r8.D8 --lib "$ANDROID_JAR" --min-api 26 \
 "$BT/zipalign" -f 4 "$BUILD/base.apk" "$BUILD/aligned.apk"
 if [ ! -f "$ROOT/debug.jks" ]; then
   keytool -genkeypair -keystore "$ROOT/debug.jks" -storepass android -keypass android \
-    -alias amm -dname "CN=AI Mobile Motions" -validity 10000 -keyalg RSA >/dev/null 2>&1
+    -alias amm -dname "CN=Mobile Motion" -validity 10000 -keyalg RSA >/dev/null 2>&1
 fi
 "$BT/apksigner" sign --ks "$ROOT/debug.jks" --ks-pass pass:android \
-  --key-pass pass:android --out "$ROOT/ai-mobile-motions.apk" "$BUILD/aligned.apk"
-echo "APK: $ROOT/ai-mobile-motions.apk ($(du -h "$ROOT/ai-mobile-motions.apk" | cut -f1))"
+  --key-pass pass:android --out "$ROOT/mobile-motion.apk" "$BUILD/aligned.apk"
+echo "APK: $ROOT/mobile-motion.apk ($(du -h "$ROOT/mobile-motion.apk" | cut -f1))"

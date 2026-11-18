@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""amm — AI Mobile Motions CLI. Agent-first video editor: JSON project in, video out."""
+"""amm — Mobile Motion CLI. Agent-first video editor: JSON project in, video out."""
 import argparse
 import json
 import os
@@ -181,7 +181,7 @@ def cmd_preview(a):
 
 
 def main():
-    ap = argparse.ArgumentParser(prog="amm", description="AI Mobile Motions — agent-first video editor")
+    ap = argparse.ArgumentParser(prog="amm", description="Mobile Motion — agent-first video editor")
     sub = ap.add_subparsers(dest="cmd")
     p = sub.add_parser("init"); p.add_argument("project"); p.add_argument("--name", default="untitled")
     p.add_argument("--width", type=int, default=1088); p.add_argument("--height", type=int, default=1344)

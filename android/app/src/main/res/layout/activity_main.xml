@@ -5,5 +5,5 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:textSize="16sp"
-    android:text="AI Mobile Motions
+    android:text="Mobile Motion
 agent control: TCP 4091"/>

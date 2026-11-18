@@ -1,4 +1,4 @@
-package com.sarvesh173.aimobilemotions;
+package com.sarvesh173.mobilemotion;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,7 +12,7 @@ import android.media.MediaMuxer;
 import android.os.Environment;
 import android.util.Log;
 
-import com.sarvesh173.aimobilemotions.gm.GMExportCodec;
+import com.sarvesh173.mobilemotion.gm.GMExportCodec;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,14 +20,14 @@ import org.json.JSONObject;
 import java.io.File;
 import java.nio.ByteBuffer;
 
-/** Canvas renderer + hardware AVC encoder, modeled on Gold Motion's export path. */
+/** Canvas renderer + hardware AVC encoder, modeled on Mobile Motion's export path. */
 public final class RenderEngine {
     private static final String TAG = "AMM_RENDER";
 
     public static File outputDir(Context ctx) {
         File base = ctx.getExternalFilesDir(null);
         if (base == null) base = ctx.getFilesDir();
-        File d = new File(base, "AI Mobile Motions");
+        File d = new File(base, "Mobile Motion");
         if (!d.exists()) d.mkdirs();
         return d;
     }
